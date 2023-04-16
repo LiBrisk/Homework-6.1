@@ -1,4 +1,5 @@
 package ru.netology.stats;
+
 public class StatsService {
     public long sum(long[] sales) {
         long totalSale = 0;
@@ -11,17 +12,19 @@ public class StatsService {
     public long average(long[] sales) {
         return sum(sales) / sales.length;
     }
+
     public int monthMaxSale(long[] sales) {
         int monthMax = 0;
-        long saleMax = sales [0];
+        long saleMax = sales[0];
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] >= saleMax) {
                 monthMax = i;
                 saleMax = sales[i];
             }
         }
-            return monthMax + 1;
-        }
+        return monthMax + 1;
+    }
+
     public int minSales(long[] sales) {
         int minMonth = 0; // номер месяца с минимальными продажами среди просмотренных ранее
 
@@ -33,24 +36,26 @@ public class StatsService {
 
         return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
-    public int monthsBellowAverage(long[] sales){
+
+    public int monthsBellowAverage(long[] sales) {
         int counter = 0;
         long averageSale = average(sales);
 
         for (long sale : sales) {
             if (sale < averageSale) {
-                counter ++;
-        }
+                counter++;
             }
-        return counter;
         }
-    public int monthsUnderAverage(long[] sales){
+        return counter;
+    }
+
+    public int monthsUnderAverage(long[] sales) {
         int counter = 0;
         long averageSale = average(sales);
 
         for (long sale : sales) {
             if (sale > averageSale) {
-                counter ++;
+                counter++;
             }
         }
         return counter;
